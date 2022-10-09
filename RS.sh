@@ -1,0 +1,58 @@
+# remove dots, commas, etc,. from the string
+sed -i 's/[.;,:]//g' $1
+# remove brackets
+sed -i 's/\[//g;s/\]//g' $1
+# remove numbers
+sed -i 's/[0-9]//g' $1
+# remove double spaces
+sed -i 's/  / /g' $1
+# replace dashes with spaces
+sed -i 's/-/ /g' $1
+# replace underscores with spaces
+sed -i 's/_/ /g' $1
+# remove quotes
+sed -i "s/['\"]//g" $1
+# remove percent signs
+sed -i 's/%//g' $1
+# remove ampersands
+sed -i 's/&//g' $1
+# remove plus signs
+sed -i 's/+//g' $1
+# remove equals signs
+sed -i 's/=//g' $1
+# remove dollar signs
+sed -i 's/$//g' $1
+# remove pound signs
+sed -i 's/#//g' $1
+# remove asterisks
+sed -i 's/*//g' $1
+# remove exclamation marks
+sed -i 's/!//g' $1
+# remove question marks
+sed -i 's/?//g' $1
+# remove backslashes
+sed -i 's/\\//g' $1
+# remove forward slashes
+sed -i 's/\///g' $1
+# remove vertical bars
+sed -i 's/|//g' $1
+# remove carets
+sed -i 's/\^//g' $1
+# remove tildes
+sed -i 's/~//g' $1
+# remove grave accents
+sed -i 's/`//g' $1
+# remove at signs
+sed -i 's/@//g' $1
+# remove less than signs
+sed -i 's/</ /g' $1
+# remove greater than signs
+sed -i 's/>/ /g' $1
+# remove left parentheses
+sed -i 's/(/ /g' $1
+# remove right parentheses
+sed -i 's/)/ /g' $1
+# remove left braces
+sed -i 's/{/ /g' $1
+# remove right braces
+sed -i 's/}/ /g' $1
