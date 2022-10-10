@@ -22,7 +22,8 @@ for i in L1:
     L2.append(i.capitalize())
 with open(WORDS, 'r') as f:
     words = f.read().strip().split(" ")
-L3 = [*L1, *L2]
+L3 = set([*L1, *L2])
+
 word_list = []
 for word in words:
     if word not in L3:
