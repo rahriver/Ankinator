@@ -1,9 +1,6 @@
 #!/bin/python3
-
 from PyMultiDictionary import MultiDictionary
-from nltk.corpus import wordnet
 import re
-import os
 
 # <--------- METADATA ----------> #
 TEMPLATE = "/home/core/Documents/Notes/Template.md"
@@ -28,6 +25,7 @@ word_list = []
 for word in words:
     if word not in L3:
         word_list.append(word.capitalize())
+word_list = list(set(word_list))
 
 # <--------- Get Definitions ----------> #
 dictionary = MultiDictionary()
@@ -35,24 +33,30 @@ print("Getting Definitions...\n")
 for word in word_list:
     try:
         define = str(dictionary.meaning('en', word))
-        print(f"{word} Done")
     except IndexError:
         print("No definition for " + word)
         continue
-    # create a markdown file with the word as the title
-    os.system(f"touch {DIR}{word}.md")
-    # copy the template to the new file
-    os.system(f"cp {TEMPLATE} {DIR}{word}.md")
-    # open the new file and append the definition after the line that matches the PATTERN1
-    with open(f"{DIR}{word}.md",'r') as f:
-        lines = f.readlines()
-    with open(f"{DIR}{word}.md",'w') as f:
-        for line in lines:
-            f.write(line)
-            if PATTERN1.search(line):
-                f.write(f"{define}\n")
-            elif PATTERN2.search(line):
-                f.write(f"{word}\n")
-            elif PATTERN3.match(line):
-                f.write(line.replace("TITLE",f"# {word}"))
-print("### Finished ###")
+    # Creating a file for each word
+    if len(define) > 12:
+        with open(DIR + word + ".md", "w") as f:
+            f.write(word)
+            print(f"{word} Done")
+        # Copying the template to the new file
+        with open(TEMPLATE, "r") as f:
+            with open(DIR + word + ".md", "a") as f2:
+                f2.write(f.read())
+        # Finding patterns and replacing them with the word and definition
+        with open(f"{DIR}{word}.md",'r') as f:
+            lines = f.readlines()
+        with open(f"{DIR}{word}.md",'w') as f:
+            for line in lines:
+                f.write(line)
+                if PATTERN1.search(line):
+                    f.write(f"{define}\n")
+                elif PATTERN2.search(line):
+                    f.write(f"{word}\n")
+                elif PATTERN3.match(line):
+                    f.write(line.replace("TITLE",f"# {word}"))
+    else:
+        print(f"\n<<No definition for {word}>>\n")
+print("\n### Finished ###")
