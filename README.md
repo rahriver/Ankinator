@@ -1,10 +1,7 @@
 # Ankinator
 A Python script that you can run on your text files to extract new words from it and create anki flashcards out of them.
 
-![image](https://user-images.githubusercontent.com/89016694/195785109-947af3f3-9332-4fe5-adef-c276d65ae727.png)
-![image](https://user-images.githubusercontent.com/89016694/195785164-038f7eaa-be3f-4814-94d1-6027f5350ea8.png)
-![image](https://user-images.githubusercontent.com/89016694/195785408-d934c2c5-2802-4957-b371-75a2030bfd2e.png)
-![image](https://user-images.githubusercontent.com/89016694/195785468-01d2744e-a0d5-4d18-b210-118c42e8211b.png)
+![All](https://user-images.githubusercontent.com/89016694/195787135-690eb8b1-6ac7-4210-b697-87137f0e0995.jpg)
 
 
 ## Dependencies
