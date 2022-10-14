@@ -2,7 +2,9 @@
 A Python script that you can run on your text files to extract new words from it and create anki flashcards out of them.
 
 # Preview
-https://user-images.githubusercontent.com/89016694/195893141-1092e973-b534-4476-9dba-f051bfeadaab.mp4
+
+https://user-images.githubusercontent.com/89016694/195893252-89800bd4-d7a9-4712-bb1a-9685e60cc81c.mp4
+
 ![All](https://user-images.githubusercontent.com/89016694/195787135-690eb8b1-6ac7-4210-b697-87137f0e0995.jpg)
 
 ## Dependencies
@@ -27,4 +29,3 @@ https://user-images.githubusercontent.com/89016694/195893141-1092e973-b534-4476-
 
 ## ☕ Support
 **Give this repository a star and share it with people who care about this kind of stuff :O**
-
