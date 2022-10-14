@@ -10,6 +10,8 @@ sed -i 's/[0-9]//g' $1
 sed -i 's/  / /g' $1
 # replace dashes with spaces
 sed -i 's/-/ /g' $1
+# replace – with spaces
+sed -i 's/–/ /g' $1
 # replace underscores with spaces
 sed -i 's/_/ /g' $1
 # remove quotes
@@ -58,3 +60,5 @@ sed -i 's/)/ /g' $1
 sed -i 's/{/ /g' $1
 # remove right braces
 sed -i 's/}/ /g' $1
+# remove empty lines
+sed -i '/^$/d' $1
