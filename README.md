@@ -16,7 +16,6 @@ https://user-images.githubusercontent.com/89016694/195893252-89800bd4-d7a9-4712-
 - Run the `File_Cleaner` script on your text to make it clean and by making it clean I mean to remove any dots and numbers and junks from the text file to make words more accessible.
 - Then you can change the `Metadata` inside the python script for your own use and run the script.
 - `Ankinator.py` is the main script that uses [PyDictionary](https://github.com/geekpradd/PyDictionary) to pull definitions.
-- `Ankinator_Alt.py` pulls single definition from wordnet, it's so much quicker but not as accurate as PyDictionary.
 - After running the scripts on your text files, you can now put those created files inside your obsidian directory and run `Obsidian to Anki` plugin on them.
 
 ### Modify
