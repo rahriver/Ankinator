@@ -3,13 +3,12 @@ from PyDictionary import PyDictionary
 import re
 
 # <--------- METADATA ----------> #
-TEMPLATE = "/home/core/Documents/Notes/Template.md"
-NORDS = "/home/core/Documents/Notes/Nords_list.md"
-WORDS = "/home/core/TPO.txt"
+TEMPLATE = "/home/<USER>/Notes/Template.md"
+NORDS = "/home/<USER>/Notes/Nords_list.md"
+WORDS = "/home/<USER>/Content.md"
 PATTERN1 = re.compile(r'Meaning:')
 PATTERN2 = re.compile(r'Expression:')
-PATTERN3 = re.compile(r'TITLE')
-DIR = "/home/core/Temp/MEGA/Obsidian/Broadest/Vocab/"
+DIR = "/home/<USER>/Words/"
 
 # <--------- Clean List ----------> #
 with open(NORDS, 'r') as f:
@@ -38,8 +37,8 @@ for word in word_list:
     define = str(dictionary.meaning(word, disable_errors=True))
     if define != "None":
         with open(DIR + word + ".md", "w") as f:
-            f.write(word)
-            print(f"Found {word} {word_list.index(word)}/{len(word_list)}")
+            pass
+            print(f"Found {word} {word_list.index(word) + 1}/{len(word_list)}")
         # Copying the template to the new file
         with open(TEMPLATE, "r") as f:
             with open(f"{DIR}{word}.md", "a") as f2:
@@ -54,7 +53,5 @@ for word in word_list:
                     f.write(f"{define}\n")
                 elif PATTERN2.search(line):
                     f.write(f"{word}\n")
-                elif PATTERN3.match(line):
-                    f.write(line.replace("TITLE",f"# {word}"))
 
 print("\n### Finished ###")
