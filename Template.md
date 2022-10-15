@@ -1,9 +1,7 @@
 ---
 Tags: 🇬🇧 🗃️
 ---
-TITLE
-
-DECK: Vocabulary
+DECK: Default
 
 START
 Vocabulary
