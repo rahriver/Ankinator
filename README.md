@@ -26,5 +26,8 @@ https://user-images.githubusercontent.com/89016694/195893252-89800bd4-d7a9-4712-
 
 > You should also change the TARGET DECK to just DECK inside the `Obsidian to Anki` plugin.
 
+Also check out an example deck that I've created from TOEFL TPOs, available as a deck in AnkiWeb:
+- [AnkiWeb](https://ankiweb.net/shared/info/594068851)
+
 ## ☕ Support
 **Give this repository a star and share it with people who care about this kind of stuff :O**
