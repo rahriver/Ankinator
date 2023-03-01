@@ -1,33 +1,52 @@
-# Ankinator
-A Python script that you can run on your text files to extract new words from it and create anki flashcards out of them.
+# Ankinator: Extract, Lemmatize, Define, and Pronounce Words for Anki
+Ankinator is a Python script that extracts words from your text and uses NLP lemmatization to normalize them. Then, it finds definitions and synonyms for each word using WordNet and gets the pronunciations from Google Translate with the gTTS library. Finally, it saves the results into a CSV file that you can import into Anki, a popular spaced repetition flashcard program.
 
-# Preview
+## Getting Started
+### Prerequisites
+- Python 3.x
+- [Natural Language Toolkit (NLTK)](https://www.nltk.org/)
+- [gTTS (Google Text-to-Speech)](https://gtts.readthedocs.io/en/latest/)
+- [Anki](https://apps.ankiweb.net/)
 
-https://user-images.githubusercontent.com/89016694/195893252-89800bd4-d7a9-4712-bb1a-9685e60cc81c.mp4
+### Installing
+Clone this repository to your local machine using `git clone https://github.com/rahriver/Ankinator.git`
+Install the required packages by running pip install -r `requirements.txt`.
 
-![All](https://user-images.githubusercontent.com/89016694/195787135-690eb8b1-6ac7-4210-b697-87137f0e0995.jpg)
+### Usage
+1. Navigate to the Ankinator directory.
+2. Run python `main.py` with the following options:
+`-i` or `--input`: The path to your input text file.
+`-o` or `--output`: The path to save the resulting CSV file. If not specified, it will be saved as output.csv in the current directory.
+Import the resulting CSV file into Anki using the import feature.
 
-## Dependencies
-- [Obsidian](https://obsidian.md/)
-- [Obsidian To Anki Plugin](https://github.com/obsidian_to_Anki)
-- [PyDictionary](https://github.com/geekpradd/PyDictionary)
+### Example
+Suppose you have a file called `sample.txt` with the following content:
 
-## Usage
-- Run the `File_Cleaner` script on your text to make it clean and by making it clean I mean to remove any dots and numbers and junks from the text file to make words more accessible.
-- Then you can change the `Metadata` inside the python script for your own use and run the script.
-- `Ankinator.py` is the main script that uses [PyDictionary](https://github.com/geekpradd/PyDictionary) to pull definitions.
-- After running the scripts on your text files, you can now put those created files inside your obsidian directory and run `Obsidian to Anki` plugin on them.
+```
+The quick brown fox jumped over the lazy dog. The dog didn't seem to care.
+```
 
-### Modify
-- `TEMPLATE`: Specify the template you want to use for your notes.
-- `NORDS`: AKA "Not Words", is a list of words that you don't want the script to search for, such as [but, am, i, so, for, etc.]. You can add more to this file.
-- `WORDS`: Is the main text file that you want to run the script on.
-- `DIR`: Directory that your flashcards will get save.
+You can run the script with the following command:
 
-> You should also change the TARGET DECK to just DECK inside the `Obsidian to Anki` plugin.
+```
+python ankinator.py -i sample.txt -o output.csv
+```
 
-Also check out an example deck that I've created from TOEFL TPOs, available as a deck in AnkiWeb:
-- [AnkiWeb](https://ankiweb.net/shared/info/594068851)
+This will create a file called `output.csv` with the following content:
 
-## ☕ Support
-**Give this repository a star and share it with people who care about this kind of stuff :O**
+
+| Word        | Lemma       | Definition  | Synonyms                  |
+| ----------- | ----------- | ----------- | -------------------------|
+| quick       | quick       | moving fast or doing something in a short time | agile, nimble, lively   |
+| brown       | brown       | of a color produced by mixing red, yellow, and blue, as of dark wood or rich soil |    |
+| fox         | fox         | a carnivorous mammal of the dog family with a pointed muzzle and bushy tail |    |
+| jump        | jump        | push oneself off a surface and into the air by using the muscles in one's legs and feet | leap, spring, bound      |
+| lazy        | lazy        | unwilling to work or use energy | idle, indolent, slothful  |
+| dog         | dog         | a domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, non-retractable claws, and a barking, howling, or whining voice |    |
+| care        | care        | the provision of what is necessary for the health, welfare, maintenance, and protection of someone or something | concern, attention, caution|
+
+
+You can then import this file into Anki and start studying!
+
+### ☕ Support
+Give this repo a star and share it with people who care about this :O
