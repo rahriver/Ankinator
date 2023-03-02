@@ -1,18 +1,28 @@
-import csv
 from nltk import pos_tag
-import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
 from nltk.tokenize import word_tokenize
 from collections import Counter
+from rich.console import Console
 from gtts import gTTS
+import csv
+import nltk
+import argparse
 
-WORDS = "/home/<path_to_your_text>"
-NORDS = "/home/<path_to_not_word_list>"
+parser = argparse.ArgumentParser(description='Ankinator: Extract words from your text and create Anki flashcards!')
+parser.add_argument('-i', '--input', type=str, help='Input file')
+parser.add_argument('-o', '--output', type=str, help='Output file', default="output.csv")
+args = parser.parse_args()
+
+NORDS = "./Nords_list.md"
 
 # download NLTK data
 nltk.download('wordnet')
+nltk.download('omw-1.4')
+nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
+
+console = Console()
 wordnet_lemmatizer = WordNetLemmatizer()
 
 with open(NORDS, "r") as f:
@@ -40,11 +50,15 @@ def get_wordnet_pos(word):
                 "R": wordnet.ADV}
     return tag_dict.get(tag, wordnet.NOUN)
 
-with open(WORDS, "r") as f:
-    input_text = f.read()
+if args.input:
+    with open(args.input, "r") as f:
+        input_text = f.read()
+else:
+    print("Please specify the input file!")
     
 tokens = word_tokenize(input_text)
 lemmatized_words = []
+console.log("[bold green]Starting...")
 for token in tokens:
     wordnet_pos = get_wordnet_pos(token)
     lemma_word = wordnet_lemmatizer.lemmatize(token, pos=wordnet_pos)
@@ -57,11 +71,12 @@ pure_words = [word for word in capitalizeed_words if word not in nords]
 word_count = Counter(pure_words)
 
 # write to a csv file
-with open('output.csv', 'w', newline='') as csvfile:
+with open(args.output, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
+    console.log(f"[bold cyan]Finding words...")
     for word, frequency in word_count.items():
         definitions, synonyms = get_word_info(word)
         if synonyms or definitions:
             writer.writerow([word.capitalize(), '\n'.join(synonyms), '\n'.join(definitions), frequency])
             print(f"Found {word}")
-    print(f"\n Saved {len(word_count.items())} words in word_info.csv")
+    console.log(f"[bold green]Saved {len(word_count.items())} words in {args.output}!")

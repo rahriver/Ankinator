@@ -3,14 +3,13 @@ Ankinator is a Python script that extracts words from your text and uses NLP lem
 
 ## Getting Started
 ### Prerequisites
+- [Anki](https://apps.ankiweb.net/)
 - Python 3.x
 - [Natural Language Toolkit (NLTK)](https://www.nltk.org/)
 - [gTTS (Google Text-to-Speech)](https://gtts.readthedocs.io/en/latest/)
-- [Anki](https://apps.ankiweb.net/)
 
 ### Installing
 Clone this repository to your local machine using `git clone https://github.com/rahriver/Ankinator.git`
-Install the required packages by running pip install -r `requirements.txt`.
 
 ### Usage
 1. Navigate to the Ankinator directory.
@@ -35,15 +34,15 @@ python ankinator.py -i sample.txt -o output.csv
 This will create a file called `output.csv` with the following content:
 
 
-| Word        | Lemma       | Definition  | Synonyms                  |
-| ----------- | ----------- | ----------- | -------------------------|
-| quick       | quick       | moving fast or doing something in a short time | agile, nimble, lively   |
-| brown       | brown       | of a color produced by mixing red, yellow, and blue, as of dark wood or rich soil |    |
-| fox         | fox         | a carnivorous mammal of the dog family with a pointed muzzle and bushy tail |    |
-| jump        | jump        | push oneself off a surface and into the air by using the muscles in one's legs and feet | leap, spring, bound      |
-| lazy        | lazy        | unwilling to work or use energy | idle, indolent, slothful  |
-| dog         | dog         | a domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, non-retractable claws, and a barking, howling, or whining voice |    |
-| care        | care        | the provision of what is necessary for the health, welfare, maintenance, and protection of someone or something | concern, attention, caution|
+| Word        | Definition  | Synonyms                  |
+| ----------- | ----------- | -------------------------|
+| quick       | moving fast or doing something in a short time | agile, nimble, lively   |
+| brown       | of a color produced by mixing red, yellow, and blue, as of dark wood or rich soil |    |
+| fox         | a carnivorous mammal of the dog family with a pointed muzzle and bushy tail |    |
+| jump        | push oneself off a surface and into the air by using the muscles in one's legs and feet | leap, spring, bound      |
+| lazy        | unwilling to work or use energy | idle, indolent, slothful  |
+| dog         | a domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, non-retractable claws, and a barking, howling, or whining voice |    |
+| care        | the provision of what is necessary for the health, welfare, maintenance, and protection of someone or something | concern, attention, caution|
 
 
 You can then import this file into Anki and start studying!
